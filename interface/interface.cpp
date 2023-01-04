@@ -183,7 +183,7 @@ int interface::i_add_reg_student()
     cout << "Enter the index of student you want to register: " << endl;
     a = get_int();
     a = a - 1;
-    if(a > num || a < 0){
+    if(a > num-1 || a < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -202,7 +202,7 @@ int interface::i_add_reg_student()
     cout << "Enter the index of registered course : " << endl;
     n = get_int();
     n = n-1;
-    if(n > number || n < 0){
+    if(n > number-1 || n < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -239,7 +239,7 @@ int interface::i_update_student_reg()
     n = get_int();
     n = n-1;
     int num = p1.get_student_r_count();
-    if(n > num || n < 0){
+    if(n > num-1 || n < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -260,7 +260,7 @@ int interface::i_delete_student_reg()
     n = get_int();
     n=n-1;
     int num = p1.get_student_r_count();
-    if(n > num || n < 0){
+    if(n > num-1 || n < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -537,7 +537,7 @@ int interface::i_add_reg_course()
     cout << "Enter the index of the course you want to register: " << endl;
     n = get_int();
     n = n - 1;
-    if(n > num || n < 0){
+    if(n > num-1 || n < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -561,7 +561,7 @@ int interface::i_add_reg_course()
     cout << "Enter the index of teacher you want to assign to the selected course" << endl;
     num2 = get_int();
     num2 = num2 - 1;
-    if(num2 > number || num2 < 0){
+    if(num2 > number-1 || num2 < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -600,7 +600,7 @@ int interface::i_update_course_reg()
     n = get_int();
     n=n-1;
     int num = p1.get_course_r_count();
-    if(n > num || n < 0){
+    if(n > num-1 || n < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
@@ -622,7 +622,7 @@ int interface::i_delete_course_reg()
     int n;
     n=n-1;
     int num = p1.get_course_r_count();
-    if(n > num || n < 0){
+    if(n > num-1 || n < 0){
         cout << "Invalid index!!"<<endl;
         return 0;
     }
