@@ -183,12 +183,16 @@ int interface::i_add_reg_student()
     cout << "Enter the index of student you want to register: " << endl;
     a = get_int();
     a = a - 1;
+    if(a > num || a < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     int id = arr[a].get_roll_no();
     //=====================//
     int number = p1.get_course_r_count();
     course_reg arr1[Length];
     p1.get_course_r_array(arr1);
-    if (num == 0)
+    if (number == 0)
     {
         cout << "No course registered yet" << endl << endl;
         return 0;
@@ -197,6 +201,11 @@ int interface::i_add_reg_student()
     int n;
     cout << "Enter the index of registered course : " << endl;
     n = get_int();
+    n = n-1;
+    if(n > number || n < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     student_reg sr1(id, n);
     p1.add_student_reg(sr1);
     cout << "Student registered successfull" << endl << endl;
@@ -228,6 +237,12 @@ int interface::i_update_student_reg()
     cout << "Enter the index you want to update: " << endl;
     int n, id;
     n = get_int();
+    n = n-1;
+    int num = p1.get_student_r_count();
+    if(n > num || n < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     cout << "Enter new student id: " << endl;
     id = get_int();
     cout << "Enter new registered course index: " << endl;
@@ -243,6 +258,12 @@ int interface::i_delete_student_reg()
     cout << "Enter the index you want to delete: " << endl;
     int n;
     n = get_int();
+    n=n-1;
+    int num = p1.get_student_r_count();
+    if(n > num || n < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     p1.delete_student_reg(n);
     cout << "Deletion successful" << endl << endl;
     return 0;
@@ -516,6 +537,10 @@ int interface::i_add_reg_course()
     cout << "Enter the index of the course you want to register: " << endl;
     n = get_int();
     n = n - 1;
+    if(n > num || n < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     course arr1[Length];
     p1.get_course_array(arr1);
     teacher arr2[Length];
@@ -536,6 +561,10 @@ int interface::i_add_reg_course()
     cout << "Enter the index of teacher you want to assign to the selected course" << endl;
     num2 = get_int();
     num2 = num2 - 1;
+    if(num2 > number || num2 < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     num3 = arr2[num2].get_code();
     course_reg cr1(num1, num3);
     p1.add_course_reg(cr1);
@@ -569,6 +598,12 @@ int interface::i_update_course_reg()
     cout << "Enter the index you want to update: " << endl;
     int n;
     n = get_int();
+    n=n-1;
+    int num = p1.get_course_r_count();
+    if(n > num || n < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     cout << "Enter new course id: " << endl;
     int id;
     id = get_int();
@@ -585,6 +620,12 @@ int interface::i_delete_course_reg()
 {
     cout << "Enter the index you want to delete: " << endl;
     int n;
+    n=n-1;
+    int num = p1.get_course_r_count();
+    if(n > num || n < 0){
+        cout << "Invalid index!!"<<endl;
+        return 0;
+    }
     n = get_int();
     p1.delete_course_reg(n);
     cout << "Deletion successful" << endl;
