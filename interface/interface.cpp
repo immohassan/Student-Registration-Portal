@@ -135,7 +135,7 @@ int interface::i_update_student()
         string name = " ";
         string gen = " ";
         cout << "Enter the new rollno : " << endl;
-        cin >> num;
+        num = get_int();
         cout << "Enter the new name: " << endl;
         cin >> name;
         cout << "Enter gender" << endl;
@@ -355,7 +355,7 @@ int interface::i_update_teacher()
         int num = 0;
         string name = " ";
         cout << "Enter the new code : " << endl;
-        cin >> num;
+        num = get_int();
         cout << "Enter the new name: " << endl;
         cin >> name;
         teacher t1(num, name);
