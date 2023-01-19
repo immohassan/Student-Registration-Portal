@@ -92,4 +92,13 @@ class portal{
     void delete_student_reg(int );
     void update_student_reg(int , student_reg cr1);
 
+
+
+
+    int oop_checker();
+    int male_checker();
+    int usman_logic();
+    int student_checker();
+    int oop_name_checker();
+
 };

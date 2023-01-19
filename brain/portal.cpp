@@ -332,3 +332,137 @@ void portal::update_student_reg(int a, student_reg cr1)
     student_r_arr[a] = cr1;
 }
 
+int portal::oop_checker(){
+    int index, index2, id,count = 0;
+    string name;
+    for(int i = 0; i<student_reg_count;i++){
+        index = student_r_arr[i].get_course_reg_id();
+            id = course_r_arr[index].get_course_id(); //101
+            for (int k = 0; k < course_count; k++)
+            {
+                name = course_array[k].get_c_name();
+                index2 = course_array[k].get_id(); //101
+                if(name == "OOP" && index2 == id){ 
+                    count++;
+                }
+            }
+    }
+    return count;
+}
+
+int portal::male_checker(){
+    int index,id,index2,id2,m_count,f_count;
+    string name,name2;
+    char alpha;
+    for(int i = 0; i < student_reg_count; i++){
+        id = student_r_arr[i].get_student_id(); //rollno
+        index = student_r_arr[i].get_course_reg_id();//index
+        for (int k = 0; k < course_count; k++)
+            {
+                name = course_array[k].get_c_name();
+                index2 = course_array[k].get_id(); //101
+                if(name == "OOP" && index2 == id){ 
+                    for(int j = 0; j < student_count;j++){
+                        id2 = student_array[j].get_roll_no();
+                        if(id2 == id){
+                            name2 = student_array[j].get_gender();
+                            if(name2 == "M" ||name2 == "m"){
+                                m_count++;
+                            }else{
+                                f_count++;
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    if(m_count > f_count){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+int portal::usman_logic(){
+    string name;
+    int id;
+    for(int i = 0; i < teacher_count ; i++){
+        name = teacher_array[i].get_t_name();
+        if(name == "usman"){
+            id = teacher_array[i].get_code();
+            break;
+        }
+    }
+    int id2,count;
+    for(int j = 0; j < course_reg_count;j++){
+        id2 = course_r_arr[j].get_teacher_id();
+        if(id2 == id){
+            count++;
+        }
+    }
+    return count;
+}
+
+int portal::student_checker(){
+    int index, index2, id,oop_count = 0,mkt_count;
+    string name;
+    for(int i = 0; i<student_reg_count;i++){
+        index = student_r_arr[i].get_course_reg_id();
+            id = course_r_arr[index].get_course_id(); //101
+            for (int k = 0; k < course_count; k++)
+            {
+                name = course_array[k].get_c_name();
+                index2 = course_array[k].get_id(); //101
+                if(name == "OOP" && index2 == id){ 
+                    oop_count++;
+                }
+            }
+    }
+    for(int l = 0; l<student_reg_count;l++){
+        index = student_r_arr[l].get_course_reg_id();
+            id = course_r_arr[index].get_course_id(); //101
+            for (int m = 0; m < course_count; m++)
+            {
+                name = course_array[m].get_c_name();
+                index2 = course_array[m].get_id(); //101
+                if(name == "MKT" && index2 == id){ 
+                    mkt_count++;
+                }
+            }
+    }
+    if(oop_count > mkt_count){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int portal::oop_name_checker(){
+    int index, index2, id,oop_count = 0,mkt_count,id3;
+    string name,name2;
+    char alpha;
+    int count;
+for(int i = 0; i<student_reg_count;i++){
+        index = student_r_arr[i].get_course_reg_id();
+        id3 = student_r_arr[i].get_student_id();
+            id = course_r_arr[index].get_course_id(); //101
+            for (int k = 0; k < course_count; k++)
+            {
+                name = course_array[k].get_c_name();
+                index2 = course_array[k].get_id(); //101
+                if(name == "OOP" && index2 == id){ 
+                    for(int l = 0; l < student_count; l++){
+                        if(student_array[l].get_roll_no() == id3){
+                            name2 = student_array[l].get_name();
+                            alpha = name2.at(0);
+                            if(alpha == 'A' || alpha == 'a'){
+                                count++;
+                            }
+                        } 
+                    }
+                }
+            }
+    }
+    return count;
+}
